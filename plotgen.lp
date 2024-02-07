@@ -3,32 +3,41 @@
 % define all the narrative functions we can perform
 function(
   introduce_character;
-  complicate_relationship_between_characters;
-  remove_character;
+  describe_setting;
+  add_conflict_between_characters;
   make_reader_sad;
   make_reader_happy;
-  make_reader_angry;
-  end_the_story
+  make_reader_angry
 ).
 % ... and so on
 
 % define a story outline consisting of a fixed number of "scenes",
 % each of which performs exactly one narrative function
-scene(1..5).
+#const num_scenes = 7.
+scene(1..num_scenes).
 { scene_performs_function(S,F) : function(F) } = 1 :- scene(S).
 
 %%% 2. define a bunch of rules that say how functions *can't* be combined
 
-% example rule: the last scene always has to perform the end_the_story function
-:- not scene_performs_function(5,end_the_story).
-
-% example rule: we can't end the story before the last scene
-:- scene_performs_function(S,end_the_story), S < 5.
-
-% example rule: we have to introduce at least two characters
-% before we can complicate a relationship between characters
-:- scene_performs_function(S2,complicate_relationship_between_characters),
+% never add conflict between characters until we've introduced at least two
+:- scene_performs_function(S2,add_conflict_between_characters),
    0 { scene_performs_function(S1,introduce_character) : scene(S1), S1 < S2 } 1.
+
+% never perform the same function twice in a row
+:- scene_performs_function(S1,F),
+   scene_performs_function(S2,F),
+   S2 = S1 + 1.
+
+% never do two emotional beats in a row
+emotional_beat(make_reader_sad;make_reader_happy;make_reader_angry).
+:- scene_performs_function(S1,F1),
+   scene_performs_function(S2,F2),
+   emotional_beat(F1),
+   emotional_beat(F2),
+   S2 = S1 + 1.
+
+% always have some sort of character conflict
+:- { scene_performs_function(S,add_conflict_between_characters) } = 0.
 
 %%% 3. make sure output is displayed correctly
 

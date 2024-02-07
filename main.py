@@ -1,6 +1,7 @@
 from clingo.control import Control
 from clingo.symbol import SymbolType
 from openai import OpenAI
+import random
 
 ### Clingo/ASP functionality
 
@@ -60,19 +61,17 @@ Write the next paragraph of the story. In this paragraph, {{follow_instruction}}
 
 instructions_by_function = {
   "introduce_character":
-    "introduce a new character",
-  "complicate_relationship_between_characters":
-    "complicate the relationship between two previously introduced characters",
-  "remove_character":
-    "write a previously introduced character out of the story",
+    "introduce a character we haven't introduced already",
+  "describe_setting":
+    "describe the place where the characters are",
+  "add_conflict_between_characters":
+    "describe a source of conflict between two previously introduced characters",
   "make_reader_sad":
-    "write something that conveys an atmosphere of sadness",
+    "convey an atmosphere of sadness",
+  "make_reader_happy":
+    "convey an atmosphere of happiness",
   "make_reader_angry":
-    "write something that conveys an atmosphere of happiness",
-  "make_reader_angry":
-    "write something that conveys an atmosphere of anger",
-  "end_the_story":
-    "bring the story to a conclusion",
+    "convey an atmosphere of anger",
 }
 
 def promptify_outline(outline, user_input_text):
@@ -121,6 +120,7 @@ def promptify_naively(num_paras, user_input_text):
 def storify_prompts(prompts):
   # translate a sequence of LLM prompts into a story
   messages = []
+  sentences = []
   for prompt in prompts:
     # prompt the LLM for the next paragraph
     messages.append({"role": "user", "content": prompt})
@@ -131,9 +131,19 @@ def storify_prompts(prompts):
     paragraph = completion.choices[0].message.content
     messages.append({"role": "assistant", "content": paragraph})
     print(paragraph + "\n")
+    # ask for a summary of the previous paragraph
+    messages.append({
+      "role": "user",
+      "content": "Summarize the previous paragraph as a single sentence."
+    })
+    summary = oai_client.chat.completions.create(
+      messages=messages, model="gpt-3.5-turbo"
+    ).choices[0].message.content
+    sentences.append(summary)
+    print("SUMMARY: " + summary + "\n")
   # parse story out of messages
-  paragraphs = [msg["content"] for msg in messages if msg["role"] == "assistant"]
-  return "\n\n".join(paragraphs)
+  #paragraphs = [msg["content"] for msg in messages if msg["role"] == "assistant"]
+  return "\n".join(sentences)
 
 ### tie it all together
 
@@ -143,13 +153,13 @@ print(outlines)
 
 # storify an outline
 print("### OUTLINE")
-outline = outlines[0] # TODO pick at random?
+outline = random.choice(outlines) # TODO pick at random?
 print(outline)
 user_input_text = "cat pirates"
 outline_prompts = promptify_outline(outline, user_input_text)
-storify_prompts(outline_prompts)
+print(storify_prompts(outline_prompts))
 
 # storify naively (same number of paragraphs)
 print("### NAIVE")
 naive_prompts = promptify_naively(len(outline), user_input_text)
-storify_prompts(naive_prompts)
+print(storify_prompts(naive_prompts))
