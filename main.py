@@ -67,11 +67,17 @@ instructions_by_function = {
   "add_conflict_between_characters":
     "describe a source of conflict between two previously introduced characters",
   "make_reader_sad":
-    "convey an atmosphere of sadness",
+    "introduce an obstacle that blocks the major goal of the protagonist",
   "make_reader_happy":
-    "convey an atmosphere of happiness",
+    "introduce a breakthrough that helps the major goal of the protagonist",
   "make_reader_angry":
-    "convey an atmosphere of anger",
+    "introduce an event that deepen the bonding between two previously introduced characters",
+  "add_bonding_between_characters":
+    "introduce an event that deepen the bonding between two previously introduced characters",
+  "add_obstacle_towards_major_goal":
+    "introduce an obstacle that blocks the major goal of the protagonist",
+  "add_breakthrough_towards_major_goal":
+    "introduce a breakthrough that helps the major goal of the protagonist",
 }
 
 def promptify_outline(outline, user_input_text):
