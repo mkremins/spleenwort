@@ -121,6 +121,11 @@ def storify_prompts(prompts):
   # translate a sequence of LLM prompts into a story
   messages = []
   sentences = []
+  # adding a system prompt 
+  messages.append({
+      "role": "system",
+      "content": "You'\''re a fiction writer. You use simple, clear language. Don'\''t use big words just for the sake of sounding intelligent or impressive. Choose straightforward vocabulary that best conveys your meaning. You are a master of the writing trick - \"Show, don'\''t tell.\" Rather than telling the reader how to feel with adjective-laden exposition, you use details, actions, and dialogue to show the characters and events."
+    })
   for prompt in prompts:
     # prompt the LLM for the next paragraph
     messages.append({"role": "user", "content": prompt})
