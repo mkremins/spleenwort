@@ -48,7 +48,7 @@ oai_client = OpenAI(api_key=oai_api_key)
 # and a brief user input text into a sequence of LLM prompts
 
 init_prompt = """
-I'm trying to write a story. Here's some notes on what I want it to be about:
+You're writing a story about:
 
 {{user_input_text}}
 
@@ -91,7 +91,7 @@ def promptify_outline(outline, user_input_text):
 # and a brief user input text into a sequence of LLM prompts
 
 naive_init_prompt = """
-I'm trying to write a story. Here's some notes on what I want it to be about:
+You're writing a story about:
 
 {{user_input_text}}
 
@@ -121,10 +121,10 @@ def storify_prompts(prompts):
   # translate a sequence of LLM prompts into a story
   messages = []
   sentences = []
-  # adding a system prompt 
+  # adding a system prompt to make the language precise
   messages.append({
       "role": "system",
-      "content": "You'\''re a fiction writer. You use simple, clear language. Don'\''t use big words just for the sake of sounding intelligent or impressive. Choose straightforward vocabulary that best conveys your meaning. You are a master of the writing trick - \"Show, don'\''t tell.\" Rather than telling the reader how to feel with adjective-laden exposition, you use details, actions, and dialogue to show the characters and events."
+      "content": "You'\''re a fiction writer. You use simple and clear language that best conveys your meaning. You don'\''t use big words just to sound impressive. You are also a master of the writing skill -  \"Show, don'\''t tell.\" You use details, actions, and dialogues to show the characters and events. "
     })
   for prompt in prompts:
     # prompt the LLM for the next paragraph
