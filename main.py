@@ -179,7 +179,7 @@ outlines = read_pre_generated_outlines('pregenerated_outlines.txt')
 print("### OUTLINE")
 outline = random.choice(outlines) # TODO pick at random?>> is it not random? 
 print(outline)
-user_input_text = "a coffee garden"
+user_input_text = "cat pirates"
 outline_prompts = promptify_outline(outline, user_input_text)
 print(storify_prompts(outline_prompts))
 
