@@ -169,11 +169,11 @@ def read_pre_generated_outlines(file_path):
 ### tie it all together
 
 # generate story outlines
-outlines = generate_outlines()
-print(outlines)
+# outlines = generate_outlines()
+# print(outlines)
 
 #read outlines from pre-generated outlines
-#outlines = read_pre_generated_outlines('pregenerated_outlines.txt')
+outlines = read_pre_generated_outlines('pregenerated_outlines0306.txt')
 
 # storify an outline
 print("### OUTLINE")
