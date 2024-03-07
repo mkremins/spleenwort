@@ -3,11 +3,14 @@
 % define all the narrative functions we can perform
 function(
   introduce_character;
-  describe_setting;
+  % describe_setting;
   add_conflict_between_characters;
+  add_bonding_between_characters;
   make_reader_sad;
   make_reader_happy;
-  make_reader_angry
+  make_reader_angry;
+  add_obstacle_towards_major_goal;
+  add_breakthrough_towards_major_goal
 ).
 % ... and so on
 
@@ -21,6 +24,10 @@ scene(1..num_scenes).
 
 % never add conflict between characters until we've introduced at least two
 :- scene_performs_function(S2,add_conflict_between_characters),
+   0 { scene_performs_function(S1,introduce_character) : scene(S1), S1 < S2 } 1.
+
+% never add bonding between characters until we've introduced at least two
+:- scene_performs_function(S2,add_bonding_between_characters),
    0 { scene_performs_function(S1,introduce_character) : scene(S1), S1 < S2 } 1.
 
 % never perform the same function twice in a row

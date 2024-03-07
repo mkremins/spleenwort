@@ -65,13 +65,13 @@ instructions_by_function = {
   "describe_setting":
     "describe the place where the characters are",
   "add_conflict_between_characters":
-    "describe a source of conflict between two previously introduced characters",
+    "convey an atmosphere of sadness",
   "make_reader_sad":
     "introduce an obstacle that blocks the major goal of the protagonist",
   "make_reader_happy":
-    "introduce a breakthrough that helps the major goal of the protagonist",
+    "convey an atmosphere of happiness",
   "make_reader_angry":
-    "introduce an event that deepen the bonding between two previously introduced characters",
+    "convey an atmosphere of anger",
   "add_bonding_between_characters":
     "introduce an event that deepen the bonding between two previously introduced characters",
   "add_obstacle_towards_major_goal":
