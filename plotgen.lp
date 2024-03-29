@@ -7,11 +7,17 @@ function(
   add_conflict_between_characters;
   add_bonding_between_characters;
   make_reader_sad;
-  make_reader_happy;
-  make_reader_angry;
+  %make_reader_happy;
+  %make_reader_angry;
   add_obstacle_towards_major_goal;
   add_breakthrough_towards_major_goal
 ).
+
+character_personality(
+  sunny;
+  cold
+).
+
 % ... and so on
 
 % define a story outline consisting of a fixed number of "scenes",
@@ -19,6 +25,9 @@ function(
 #const num_scenes = 7.
 scene(1..num_scenes).
 { scene_performs_function(S,F) : function(F) } = 1 :- scene(S).
+
+%% add personality for each introduced character
+{ scene_introduce_personality(S,P) : character_personality(P) } = 1 :- scene_performs_function(S,introduce_character).
 
 %%% 2. define a bunch of rules that say how functions *can't* be combined
 
@@ -51,3 +60,5 @@ emotional_beat(make_reader_sad;make_reader_happy;make_reader_angry).
 % only show the story outline in the completed answer set,
 % not all the extra bookkeeping state
 #show scene_performs_function/2.
+% show the personality
+#show scene_introduce_personality/2.
