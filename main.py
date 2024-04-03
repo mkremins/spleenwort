@@ -63,12 +63,14 @@ Write the next paragraph of the story. In this paragraph, {{follow_instruction}}
 instructions_by_function = {
   "introduce_character":
     "introduce a character we haven't introduced already",
+  "introduce_character,cold":
+    "introduce a character whose personality is Cold and Solitary, have a soft side deep down,very powerful",
+  "introduce_character,sunny":
+    "introduce a character whose personality is Optimistic and Brave,Strong Sense of Justice",
   "describe_setting":
     "describe the place where the characters are",
   "add_conflict_between_characters":
-    "convey an atmosphere of sadness",
-  "make_reader_sad":
-    "introduce an obstacle that blocks the major goal of the protagonist",
+    "introduce an event that adds conflicts between two previously introduced characters",
   "make_reader_happy":
     "convey an atmosphere of happiness",
   "make_reader_angry":
