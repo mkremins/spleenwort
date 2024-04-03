@@ -17,29 +17,6 @@ def exprify_symbol(sym):
   else:
     raise ["BAD SYMBOL", sym]
 
-# def generate_outlines():
-#   # helper callback to collect valid story outlines as they're generated
-#   all_outlines = []
-#   def collect_outline(model):
-#     # get shown symbols from the model and translate them to lispy exprs
-#     syms = model.symbols(shown=True)
-#     exprs = [exprify_symbol(sym) for sym in syms]
-#     # assume all exprs are of the form ["scene_performs_function", idx, fn];
-#     # added character personality for introduction, looks like, scene_performs_function(1, introduce_character),scene_introduce_personality(1, cold)
-#     # extract a story outline consisting of fns sorted by idx
-#     exprs.sort(key=lambda expr: expr[1])
-#     outline = [expr[2] for expr in exprs]
-#     all_outlines.append(outline)
-#     print(outline)
-#   # invoke clingo to start solving
-#   ctl = Control()
-#   ctl.configuration.solve.models = 0 # enumerate all models
-#   ctl.load("./plotgen.lp")
-#   ctl.ground()
-#   ctl.solve(on_model=collect_outline, on_unsat=lambda: print("UNSAT"))
-#   # when clingo finishes, return collected outlines
-#   return all_outlines
-
 #update the generate outline function with new output format
 def generate_outlines():
     # helper callback to collect valid story outlines as they're generated
