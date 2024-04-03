@@ -143,18 +143,6 @@ def storify_prompts(prompts):
     paragraph = completion.choices[0].message.content
     messages.append({"role": "assistant", "content": paragraph})
     print(paragraph + "\n")
-    # # ask for a summary of the previous paragraph
-    # messages.append({
-    #   "role": "user",
-    #   "content": "Summarize the previous paragraph as a single sentence."
-    # })
-    # summary = oai_client.chat.completions.create(
-    #   messages=messages, model="gpt-3.5-turbo"
-    # ).choices[0].message.content
-    # sentences.append(summary)
-    # print("SUMMARY: " + summary + "\n")
-  # parse story out of messages
-  #paragraphs = [msg["content"] for msg in messages if msg["role"] == "assistant"]
   return "\n".join(sentences)
 
 # Function to read pre-generated outlines from a file
