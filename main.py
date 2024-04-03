@@ -25,6 +25,7 @@ def generate_outlines():
     syms = model.symbols(shown=True)
     exprs = [exprify_symbol(sym) for sym in syms]
     # assume all exprs are of the form ["scene_performs_function", idx, fn];
+    # added character personality for introduction, looks like, scene_performs_function(1, introduce_character),scene_introduce_personality(1, cold)
     # extract a story outline consisting of fns sorted by idx
     exprs.sort(key=lambda expr: expr[1])
     outline = [expr[2] for expr in exprs]
