@@ -189,23 +189,23 @@ def storify_prompts(prompts):
   return "\n".join(sentences)
 
 # Function to read pre-generated outlines from a file
-# def read_pre_generated_outlines(file_path):
-#     outlines = []
-#     with open(file_path, 'r') as file:
-#         for line in file:
-#             # Assuming each line is a valid Python list in string format
-#             outline = eval(line.strip())
-#             outlines.append(outline)
-#     return outlines
+def read_pre_generated_outlines(file_path):
+    outlines = []
+    with open(file_path, 'r') as file:
+        for line in file:
+            # Assuming each line is a valid Python list in string format
+            outline = eval(line.strip())
+            outlines.append(outline)
+    return outlines
 
 ### tie it all together
 
-# generate story outlines
-outlines = generate_outlines()
-print(outlines)
+# # generate story outlines
+# outlines = generate_outlines()
+# print(outlines)
 
 #read outlines from pre-generated outlines
-#outlines = read_pre_generated_outlines('pregenerated_outlines0306.txt')
+outlines = read_pre_generated_outlines('pregenerated_outlines0403.txt')
 
 # storify an outline
 print("### OUTLINE")

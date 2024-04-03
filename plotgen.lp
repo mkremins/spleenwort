@@ -6,7 +6,7 @@ function(
   % describe_setting;
   add_conflict_between_characters;
   add_bonding_between_characters;
-  make_reader_sad;
+  %make_reader_sad;
   %make_reader_happy;
   %make_reader_angry;
   add_obstacle_towards_major_goal;
