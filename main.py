@@ -206,6 +206,17 @@ def read_pre_generated_outlines(file_path):
             outlines.append(outline)
     return outlines
 
+# function to read one random line from prgenerated outline file
+# Assuming each line is a valid Python list in string format
+def read_random_outline(file_path):
+    with open(file_path, 'r') as file:
+        line = next(file)
+        for num, aline in enumerate(file, 2):
+            if random.randint(1, num) == 1:
+                line = aline
+    outline = eval(line.strip())
+    return outline
+
 ### tie it all together
 
 # generate story outlines
@@ -213,11 +224,13 @@ def read_pre_generated_outlines(file_path):
 # print(outlines)
 
 #read outlines from pre-generated outlines
-outlines = read_pre_generated_outlines('pregenerated_outlines0403.txt')
+#outlines = read_pre_generated_outlines('outline04032.txt')
 
 # storify an outline
 print("### OUTLINE")
-outline = random.choice(outlines) # TODO pick at random?>> is it not random? 
+#outline = random.choice(outlines) # TODO pick at random?>> is it not random? 
+# read randomly from the pregenerated outline file
+outline = read_random_outline('outline04032.txt')
 print(outline)
 user_input_text = "cat pirates"
 outline_prompts = promptify_outline(outline, user_input_text)
