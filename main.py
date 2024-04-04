@@ -208,7 +208,7 @@ def read_pre_generated_outlines(file_path):
 
 ### tie it all together
 
-# # generate story outlines
+# generate story outlines
 # outlines = generate_outlines()
 # print(outlines)
 
