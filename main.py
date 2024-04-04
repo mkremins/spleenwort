@@ -105,9 +105,17 @@ instructions_by_function = {
   "introduce_character":
     "introduce a character we haven't introduced already",
   "introduce_character,cold":
-    "introduce a character whose personality is Cold and Solitary, have a soft side deep down,very powerful",
+    "introduce a character who is cold and solitary, might have a soft side deep down",
   "introduce_character,sunny":
-    "introduce a character whose personality is Optimistic and Brave,Strong Sense of Justice",
+    "introduce a character who is optimistic and brave",
+  "introduce_character,clumsy":
+    "introduce a character who is innocent and adorable, often acts in a laughably naive way",
+  "introduce_character,smart":
+    "introduce a character who is intellectually agile, skilled in strategy and planning, provides wisdom and support at crucial moments",
+  "introduce_character,mysterious":
+    "introduce a character who is full of mysteries, difficult to understand, whose true motives and abilities revealed at the climax",
+  "introduce_character,quirky":
+    "introduce a character who is quirky and eccentric, marches to the beat of their own drum, highly imaginative with unusual habits and mannerisms",
   "describe_setting":
     "describe the place where the characters are",
   "add_conflict_between_characters":

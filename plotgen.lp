@@ -15,7 +15,11 @@ function(
 
 character_personality(
   sunny;
-  cold
+  cold;
+  clumsy;
+  smart;
+  mysterious;
+  quirky
 ).
 
 % ... and so on
@@ -28,6 +32,8 @@ scene(1..num_scenes).
 
 %% add personality for each introduced character
 { scene_introduce_personality(S,P) : character_personality(P) } = 1 :- scene_performs_function(S,introduce_character).
+
+
 
 %%% 2. define a bunch of rules that say how functions *can't* be combined
 
@@ -51,6 +57,10 @@ emotional_beat(make_reader_sad;make_reader_happy;make_reader_angry).
    emotional_beat(F1),
    emotional_beat(F2),
    S2 = S1 + 1.
+
+% how to restrict not add the same personality twice?
+% never introduce the same personality twice
+:- scene_introduce_personality(S1,P), scene_introduce_personality(S2,P), S1 != S2.
 
 % always have some sort of character conflict
 :- { scene_performs_function(S,add_conflict_between_characters) } = 0.
