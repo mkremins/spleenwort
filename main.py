@@ -113,7 +113,7 @@ instructions_by_function = {
   "introduce_character,smart":
     "introduce a character who is intellectually agile, skilled in strategy and planning, provides wisdom and support at crucial moments",
   "introduce_character,mysterious":
-    "introduce a character who is full of mysteries, difficult to understand, whose true motives and abilities revealed at the climax",
+    "introduce a character who is full of mysteries, difficult to understand, whose true motives are hard to read",
   "introduce_character,quirky":
     "introduce a character who is quirky and eccentric, marches to the beat of their own drum, highly imaginative with unusual habits and mannerisms",
   "describe_setting":
@@ -232,7 +232,7 @@ print("### OUTLINE")
 # read randomly from the pregenerated outline file
 outline = read_random_outline('outline04032.txt')
 print(outline)
-user_input_text = "an old library"
+user_input_text = "traveling mouse - in first person view"
 outline_prompts = promptify_outline(outline, user_input_text)
 print(storify_prompts(outline_prompts))
 
