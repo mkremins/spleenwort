@@ -114,6 +114,7 @@ instructions_by_function = {
     "introduce a character who is intellectually agile, skilled in strategy and planning, provides wisdom and support at crucial moments",
   "introduce_character,mysterious":
     "introduce a character who is full of mysteries, difficult to understand, whose true motives are hard to read",
+  #seems a bit off - quirky
   "introduce_character,quirky":
     "introduce a character who is quirky and eccentric, marches to the beat of their own drum, highly imaginative with unusual habits and mannerisms",
   "describe_setting":
