@@ -233,7 +233,7 @@ print("### OUTLINE")
 # read randomly from the pregenerated outline file
 outline = read_random_outline('outline04032.txt')
 print(outline)
-user_input_text = "traveling mouse - in first person view"
+user_input_text = "cat pirates"
 outline_prompts = promptify_outline(outline, user_input_text)
 print(storify_prompts(outline_prompts))
 
