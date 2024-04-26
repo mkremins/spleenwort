@@ -107,7 +107,7 @@ Write the next paragraph of the story. In this paragraph, {{follow_instruction}}
 obstacle_prompt = """
 Given the story theme: {{user_input_text}}
 
-Generate a list of 3 possible obstacles that could block the protagonist's major goal in the story.
+Write a list of 3 possible obstacles that could block the protagonist's major goal in the story. Use one sentece only for each obstacle.
 """.strip()
 
 instructions_by_function = {
