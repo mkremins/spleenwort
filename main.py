@@ -2,6 +2,8 @@ from clingo.control import Control
 from clingo.symbol import SymbolType
 from openai import OpenAI
 import random
+import datetime
+import sys
 
 ### Clingo/ASP functionality
 
@@ -224,20 +226,31 @@ def read_random_outline(file_path):
 # outlines = generate_outlines()
 # print(outlines)
 
-#read outlines from pre-generated outlines
-#outlines = read_pre_generated_outlines('outline04032.txt')
+# Generate a unique file name using the story name and timestamp
+timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M")
+user_input_text = "cat pirates" #theme of the story
+file_name = f"{user_input_text}_{timestamp}.txt"
 
-# storify an outline
-print("### OUTLINE")
-#outline = random.choice(outlines) # TODO pick at random?>> is it not random? 
-# read randomly from the pregenerated outline file
-outline = read_random_outline('outline04032.txt')
-print(outline)
-user_input_text = "cat pirates"
-outline_prompts = promptify_outline(outline, user_input_text)
-print(storify_prompts(outline_prompts))
+# saving the prints .txt file
+# Redirect standard output to the file
+original_stdout = sys.stdout
+with open(file_name, 'w') as file:
+    sys.stdout = file
 
-# storify naively (same number of paragraphs)
-print("### NAIVE")
-naive_prompts = promptify_naively(len(outline), user_input_text)
-print(storify_prompts(naive_prompts))
+    # storify an outline
+    print("### OUTLINE")
+    #outline = random.choice(outlines) # TODO pick at random?>> is it not random? 
+    # read randomly from the pregenerated outline file
+    outline = read_random_outline('outline04032.txt')
+    print(outline)
+    outline_prompts = promptify_outline(outline, user_input_text)
+    print(storify_prompts(outline_prompts))
+
+    # storify naively (same number of paragraphs)
+    print("### NAIVE")
+    naive_prompts = promptify_naively(len(outline), user_input_text)
+    print(storify_prompts(naive_prompts))
+
+# Restore standard output
+sys.stdout = original_stdout
+print("Stories saved to {file_name}")
