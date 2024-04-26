@@ -105,7 +105,7 @@ instructions_by_function = {
   "introduce_character":
     "introduce a character we haven't introduced already",
   "introduce_character,cold":
-    "introduce a character who is cold and solitary, might have a soft side deep down",
+    "introduce a cold and solitary character who speaks bluntly and rarely shows emotion, hinting at a tragic past",
   "introduce_character,sunny":
     "introduce a character who is optimistic and brave",
   "introduce_character,clumsy":
