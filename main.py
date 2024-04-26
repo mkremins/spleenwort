@@ -107,7 +107,7 @@ instructions_by_function = {
   "introduce_character":
     "introduce a character we haven't introduced already",
   "introduce_character,cold":
-    "introduce a cold and solitary character who speaks bluntly and rarely shows emotion, hinting at a tragic past",
+    "introduce a cold and solitary character who speaks bluntly and rarely shows emotion",
   "introduce_character,sunny":
     "introduce a character who is optimistic and brave",
   "introduce_character,clumsy":
@@ -198,16 +198,6 @@ def storify_prompts(prompts):
     messages.append({"role": "assistant", "content": paragraph})
     print(paragraph + "\n")
   return "\n".join(sentences)
-
-# Function to read pre-generated outlines from a file
-def read_pre_generated_outlines(file_path):
-    outlines = []
-    with open(file_path, 'r') as file:
-        for line in file:
-            # Assuming each line is a valid Python list in string format
-            outline = eval(line.strip())
-            outlines.append(outline)
-    return outlines
 
 # function to read one random line from prgenerated outline file
 # Assuming each line is a valid Python list in string format
