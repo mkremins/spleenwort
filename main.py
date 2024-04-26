@@ -103,6 +103,13 @@ followup_prompt = """
 Write the next paragraph of the story. In this paragraph, {{follow_instruction}}.
 """.strip()
 
+# add an extra prompts for obstacles
+obstacle_prompt = """
+Given the story theme: {{user_input_text}}
+
+Generate a list of 3 possible obstacles that could block the protagonist's major goal in the story.
+""".strip()
+
 instructions_by_function = {
   "introduce_character":
     "introduce a character we haven't introduced already",
@@ -130,17 +137,35 @@ instructions_by_function = {
   "add_bonding_between_characters":
     "introduce an event that deepen the bonding between two previously introduced characters",
   "add_obstacle_towards_major_goal":
-    "introduce an obstacle that blocks the major goal of the protagonist",
+    "introduce an obstacle that blocks the major goal of the protagonist, for example: {{obstacle_hint}}",
   "add_breakthrough_towards_major_goal":
     "introduce a breakthrough that helps the major goal of the protagonist",
 }
 
 def promptify_outline(outline, user_input_text):
   prompts = []
+  obstacle_hint = "" #get llm to generate examples first
+
   for i in range(len(outline)):
     is_first_paragraph = i == 0
     function = outline[i]
+
+    if function == "add_obstacle_towards_major_goal":
+      # Generate the list of possible obstacles
+      obstacle_prompt_text = obstacle_prompt.replace("{{user_input_text}}", user_input_text)
+      messages = [{"role": "user", "content": obstacle_prompt_text}]
+      completion = oai_client.chat.completions.create(
+        messages=messages, model="gpt-3.5-turbo"
+      )
+      obstacle_hint = completion.choices[0].message.content.strip()
+      print("obstacle_hint:"+obstacle_hint)
+
     instruction = instructions_by_function[function]
+
+    if function == "add_obstacle_towards_major_goal":
+      # Include the obstacle hint in the instruction
+      instruction = instruction.replace("{{obstacle_hint}}", obstacle_hint)
+
     prompt_template = init_prompt if is_first_paragraph else followup_prompt
     prompt = prompt_template.replace("{{follow_instruction}}", instruction)
     if is_first_paragraph:
