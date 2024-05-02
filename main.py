@@ -192,8 +192,6 @@ def promptify_naively(num_paras, user_input_text):
   prompts = []
   for i in range(num_paras):
     is_first_paragraph = i == 0
-    function = outline[i]
-    instruction = instructions_by_function[function]
     prompt = naive_init_prompt if is_first_paragraph else naive_followup_prompt
     if is_first_paragraph:
       prompt = prompt.replace("{{user_input_text}}", user_input_text)
@@ -243,7 +241,7 @@ def read_random_outline(file_path):
 
 # Generate a unique file name using the story name and timestamp
 timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M")
-user_input_text = "cat pirates" #theme of the story
+user_input_text = "a researcher explore how to tell a good story via LLMs - first person view" #theme of the story
 file_name = f"{user_input_text}_{timestamp}.txt"
 
 # saving the prints .txt file
@@ -268,4 +266,4 @@ with open(file_name, 'w') as file:
 
 # Restore standard output
 sys.stdout = original_stdout
-print("Stories saved to {file_name}")
+print(f"Stories saved to {file_name}")
