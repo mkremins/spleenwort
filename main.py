@@ -88,7 +88,7 @@ def generate_outlines():
 oai_api_key = open("openai_api_key.txt").read()
 oai_client = OpenAI(api_key=oai_api_key)
 # Define the GPT model to use
-GPT_MODEL = "gpt-4-turbo" # or "gpt-3.5-turbo"
+GPT_MODEL = "gpt-3.5-turbo"# or "gpt-4-turbo"
 
 # outline-based story generation: translate an ASP-generated outline
 # and a brief user input text into a sequence of LLM prompts
@@ -98,18 +98,18 @@ You're writing a story about:
 
 {{user_input_text}}
 
-Write the first paragraph of the story. In this paragraph, {{follow_instruction}}.
+Write the first paragraph of the story. In this paragraph, {{follow_instruction}}. Use less than six sentences in the paragraph.
 """.strip()
 
 followup_prompt = """
-Write the next paragraph of the story. In this paragraph, {{follow_instruction}}.
+Write the next paragraph of the story. In this paragraph, {{follow_instruction}}. Use less than six sentences in the paragraph.
 """.strip()
 
 # add an extra prompts for obstacles
 obstacle_prompt = """
 Given the story theme: {{user_input_text}}
 
-Write a list of 3 possible obstacles that could block the protagonist's major goal in the story. Use one sentece only for each obstacle.
+Write a list of eight obstacles that could block the protagonist's major goal in the story. Use less than 5 words for each obstacle.
 """.strip()
 
 instructions_by_function = {
@@ -183,11 +183,11 @@ You're writing a story about:
 
 {{user_input_text}}
 
-Write the first paragraph of the story.
+Write the first paragraph of the story. Use less than six sentences in the paragraph.
 """.strip()
 
 naive_followup_prompt = """
-Write the next paragraph of the story.
+Write the next paragraph of the story. Use less than six sentences in the paragraph.
 """.strip()
 
 def promptify_naively(num_paras, user_input_text):
