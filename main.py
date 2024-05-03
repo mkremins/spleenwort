@@ -87,6 +87,8 @@ def generate_outlines():
 
 oai_api_key = open("openai_api_key.txt").read()
 oai_client = OpenAI(api_key=oai_api_key)
+# Define the GPT model to use
+GPT_MODEL = "gpt-4-turbo" # or "gpt-3.5-turbo"
 
 # outline-based story generation: translate an ASP-generated outline
 # and a brief user input text into a sequence of LLM prompts
@@ -155,7 +157,7 @@ def promptify_outline(outline, user_input_text):
       obstacle_prompt_text = obstacle_prompt.replace("{{user_input_text}}", user_input_text)
       messages = [{"role": "user", "content": obstacle_prompt_text}]
       completion = oai_client.chat.completions.create(
-        messages=messages, model="gpt-3.5-turbo"
+        messages=messages, model=GPT_MODEL
       )
       obstacle_hint = completion.choices[0].message.content.strip()
       print("obstacle_hint:"+obstacle_hint)
@@ -214,7 +216,7 @@ def storify_prompts(prompts):
     # prompt the LLM for the next paragraph
     messages.append({"role": "user", "content": prompt})
     completion = oai_client.chat.completions.create(
-      messages=messages, model="gpt-3.5-turbo"
+      messages=messages, model=GPT_MODEL
     )
     # append response message as context for future paragraphs
     paragraph = completion.choices[0].message.content
@@ -240,9 +242,9 @@ def read_random_outline(file_path):
 # print(outlines)
 
 # Generate a unique file name using the story name and timestamp
-timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M")
-user_input_text = "a researcher explore how to tell a good story via LLMs - first person view" #theme of the story
-file_name = f"{user_input_text}_{timestamp}.txt"
+timestamp = datetime.datetime.now().strftime("%Y%m%d%H%M")
+user_input_text = "cat pirates - first person view" #theme of the story
+file_name = f"{user_input_text}_{GPT_MODEL}_{timestamp}.txt"
 
 # saving the prints .txt file
 # Redirect standard output to the file
