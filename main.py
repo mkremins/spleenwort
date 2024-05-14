@@ -116,7 +116,7 @@ instructions_by_function = {
   "introduce_character":
     "introduce a character we haven't introduced already",
   "introduce_rival_character":
-    "introduce a character who has a rival background towards a previous introduced character",
+    "Introduce a new character whose background, personality, goals, or beliefs are in direct opposition or contrast to those of a character you have already introduced earlier in the story. Establish the reasons behind their rivalry, which may stem from differing upbringings, conflicting interests, or a history of antagonism between them. Develop this new character to create tension and potential conflict with the previously introduced character, setting the stage for an engaging narrative arc involving their rivalry.",
   "introduce_character:cold":
     "introduce a cold and solitary character who speaks bluntly and rarely shows emotion",
   "introduce_character:sunny":
@@ -127,17 +127,16 @@ instructions_by_function = {
     "introduce a character who is intellectually agile, skilled in strategy and planning, provides wisdom and support at crucial moments",
   "introduce_character:mysterious":
     "introduce a character who is full of mysteries, difficult to understand, whose true motives are hard to read",
-  #seems a bit off - quirky
   "introduce_character:quirky":
     "introduce a character who is quirky and eccentric, marches to the beat of their own drum, highly imaginative with unusual habits and mannerisms",
   "describe_setting":
     "describe the place where the characters are",
-  "add_conflict_between_characters":
-    "introduce an event that adds conflicts between two previously introduced characters",
   "make_reader_sad":
     "convey an atmosphere of sadness",
   "make_reader_angry":
     "convey an atmosphere of anger",
+  "add_conflict_between_characters":
+    "introduce an event that adds conflicts between two previously introduced characters",  
   "add_bonding_between_characters":
     "introduce an event that deepen the bonding between two previously introduced characters",
   "add_obstacle_towards_major_goal":
@@ -257,7 +256,7 @@ def read_random_outline(file_path):
 
 # Generate a unique file name using the story name and timestamp
 timestamp = datetime.datetime.now().strftime("%Y%m%d%H%M")
-user_input_text = "a magical world where you can create new spells by writing poems" #theme of the story
+user_input_text = "cat pirates" #theme of the story
 file_name = f"{user_input_text}_{GPT_MODEL}_{timestamp}.txt"
 
 # saving the prints .txt file
