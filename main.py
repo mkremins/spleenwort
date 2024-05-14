@@ -115,6 +115,8 @@ Write a list of eight obstacles that could block the protagonist's major goal in
 instructions_by_function = {
   "introduce_character":
     "introduce a character we haven't introduced already",
+  "introduce_rival_character":
+    "introduce a character who has a rival background towards a previous introduced character",
   "introduce_character:cold":
     "introduce a cold and solitary character who speaks bluntly and rarely shows emotion",
   "introduce_character:sunny":
@@ -142,8 +144,18 @@ instructions_by_function = {
     "introduce an obstacle that blocks the major goal of the protagonist, for example: {{obstacle_hint}}",
   "add_breakthrough_towards_major_goal":
     "introduce a breakthrough that helps the major goal of the protagonist",
-  "introduce_rival_character":
-    "introduce a character who has a rival background towards a previous introduced character"
+  "add_twist":
+    "add a plot twist",
+  "add_obstacle:betrayal":
+    "introduce an obstacle to a previous introduced character where they face betrayal",
+  "add_obstacle:supernatural":
+    "introduce an obstacle to a previous introduced character where they face supernatural power",
+  "add_obstacle:forbidden_love":
+    "introduce an obstacle to a previous introduced character where they face forbidden love",
+  "add_obstacle:opposition":
+    "introduce an obstacle to a previous introduced character where they face opposition",
+  "add_obstacle:guilt":
+    "introduce an obstacle to a previous introduced character where they face guilt",
 }
 
 def promptify_outline(outline, user_input_text):
@@ -258,7 +270,7 @@ with open(file_name, 'w') as file:
     print("### OUTLINE")
     #outline = random.choice(outlines) # TODO pick at random?>> is it not random? 
     # read randomly from the pregenerated outline file
-    outline = read_random_outline('outline04032.txt')
+    outline = read_random_outline('outlines0514.txt')
     print(outline)
     outline_prompts = promptify_outline(outline, user_input_text)
     print(storify_prompts(outline_prompts))

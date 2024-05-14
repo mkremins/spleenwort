@@ -76,7 +76,8 @@ def format_outline(model):
 def save_outlines(outlines, file_name):
     with open(file_name, 'w') as file:
         for outline in outlines:
-            file.write(', '.join(outline) + '\n')
+            outline_str = ', '.join([f"'{item}'" for item in outline])
+            file.write(f"[{outline_str}]\n")
     print(f"Outlines saved to {file_name}")
 
 def main():
@@ -101,7 +102,7 @@ def main():
     ctl.solve(on_model=lambda model: outlines.append(format_outline(model)))
 
     # Save the outlines to a file
-    save_outlines(outlines, "outlines0513new.txt")
+    save_outlines(outlines, "outlines0514.txt")
 
 
 if __name__ == "__main__":
