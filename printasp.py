@@ -45,6 +45,14 @@ def format_outline(model):
             personality = sym.arguments[1].name
             # add the personality to the corresponding scene index in the scene_info dictionary
             scene_info.setdefault(scene_index, []).append(personality)
+        # check if the symbol represents a scene introducing a personality
+        elif sym.name == "scene_define_obstacle_type":
+            # extract the scene index from the first argument
+            scene_index = sym.arguments[0].number
+            # extract the obstacle_type from the second argument
+            obstacle_type = sym.arguments[1].name
+            # add the obstacle_type to the corresponding scene index in the scene_info dictionary
+            scene_info.setdefault(scene_index, []).append(obstacle_type) 
 
     # create the outline list in the desired format
     outline = []

@@ -3,14 +3,17 @@
 % define all the narrative functions we can perform
 function(
   introduce_character;
-  % describe_setting;
+  introduce_rival_character;
   add_conflict_between_characters;
   add_bonding_between_characters;
   %make_reader_sad;
   %make_reader_happy;
   %make_reader_angry;
+  %describe_setting;
   add_obstacle_towards_major_goal;
-  add_breakthrough_towards_major_goal
+  add_obstacle;%a different one to test the obstacle type
+  add_breakthrough_towards_major_goal;
+  add_twist
 ).
 
 character_personality(
@@ -22,6 +25,15 @@ character_personality(
   quirky
 ).
 
+obstacle_type(
+  betrayal;
+  forbidden_love;
+  opposition;
+  supernatural;
+  guilt;
+  other
+).
+
 % ... and so on
 
 % define a story outline consisting of a fixed number of "scenes",
@@ -30,10 +42,11 @@ character_personality(
 scene(1..num_scenes).
 { scene_performs_function(S,F) : function(F) } = 1 :- scene(S).
 
-%% add personality for each introduced character
+% add personality for each introduced character
 { scene_introduce_personality(S,P) : character_personality(P) } = 1 :- scene_performs_function(S,introduce_character).
 
-
+% assign a certain type to the obstacle
+{ scene_define_obstacle_type(S,O) : obstacle_type(O) } = 1 :- scene_performs_function(S,add_obstacle).
 
 %%% 2. define a bunch of rules that say how functions *can't* be combined
 
@@ -65,6 +78,12 @@ emotional_beat(make_reader_sad;make_reader_happy;make_reader_angry).
 % always have some sort of character conflict
 :- { scene_performs_function(S,add_conflict_between_characters) } = 0.
 
+% always have some sort of obstacle
+:- { scene_performs_function(S,add_obstacle) } = 0.
+
+% never introduce a rival character in the first scene
+
+
 %%% 3. make sure output is displayed correctly
 
 % only show the story outline in the completed answer set,
@@ -72,3 +91,5 @@ emotional_beat(make_reader_sad;make_reader_happy;make_reader_angry).
 #show scene_performs_function/2.
 % show the personality
 #show scene_introduce_personality/2.
+% show the obstacle type
+#show scene_define_obstacle_type/2.
