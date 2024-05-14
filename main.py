@@ -109,16 +109,16 @@ Write the next paragraph of the story. In this paragraph, {{follow_instruction}}
 obstacle_prompt = """
 Given the story theme: {{user_input_text}}
 
-Write a list of eight obstacles that could block the protagonist's major goal in the story. Use less than 5 words for each obstacle.
+Write a list of five obstacles that could block the protagonist's major goal in the story. Use less than 5 words for each obstacle.
 """.strip()
 
 instructions_by_function = {
   "introduce_character":
     "introduce a character we haven't introduced already",
   "introduce_rival_character":
-    "Introduce a new character whose background, personality, goals, or beliefs are in direct opposition or contrast to those of a character you have already introduced earlier in the story. Establish the reasons behind their rivalry, which may stem from differing upbringings, conflicting interests, or a history of antagonism between them. Develop this new character to create tension and potential conflict with the previously introduced character, setting the stage for an engaging narrative arc involving their rivalry.",
+    "introduce a rival character to a previous introduced character. Establish the reasons behind their rivalry, which may stem from differing upbringings, conflicting interests, or a history of antagonism between them. Ensure that the rival's introduction contributes to the progression of the plot, the development of the existing character, or the overall theme of the story. Seamlessly integrate the rival character into the ongoing narrative, maintaining the story's cohesion and flow",
   "introduce_character:cold":
-    "introduce a cold and solitary character who speaks bluntly and rarely shows emotion",
+    "introduce a new, cold, and solitary character would fit organically. Consider how this character's presence can be connected to the current plot, setting, or other characters. Craft a scene or situation that allows for a smooth integration of this character, ensuring that their introduction doesn't feel forced or disconnected from the narrative. Provide context for their cold and solitary nature through their actions, dialogue, or the reactions of other characters, while maintaining the flow and consistency of the story. This character's introduction should contribute to the development of the plot or the growth of other characters in a meaningful way.",
   "introduce_character:sunny":
     "introduce a character who is optimistic and brave",
   "introduce_character:clumsy":
