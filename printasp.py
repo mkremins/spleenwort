@@ -62,16 +62,22 @@ def format_outline(model):
         scene_functions = scene_info[scene_index]
         # check if the scene has more than one function/personality
         if len(scene_functions) > 1:
-            # join the function name and personality with a comma and append to the outline list
-            outline.append(f"{scene_functions[0]},{scene_functions[1]}")
+            # join the function name and personality/obstacle type with a : and append to the outline list
+            outline.append(f"{scene_functions[0]}:{scene_functions[1]}")
         else:
             # append the single function name to the outline list
             outline.append(scene_functions[0])
 
     # append the outline list to the all_outlines list
     # print the outline for debugging purposes
-    print(outline)
+    #print(outline)
     return outline
+
+def save_outlines(outlines, file_name):
+    with open(file_name, 'w') as file:
+        for outline in outlines:
+            file.write(', '.join(outline) + '\n')
+    print(f"Outlines saved to {file_name}")
 
 def main():
     # Create a Clingo control object
@@ -87,6 +93,16 @@ def main():
     print("Clingo Output:")
     ctl.solve(on_model=print_model)
     ctl.solve(on_model=format_outline)
+
+    ## Solve the ASP program and collect all the outlines
+    # set the configuration to enumerate all models
+    ctl.configuration.solve.models = 0
+    outlines = []
+    ctl.solve(on_model=lambda model: outlines.append(format_outline(model)))
+
+    # Save the outlines to a file
+    save_outlines(outlines, "outlines0513new.txt")
+
 
 if __name__ == "__main__":
     main()

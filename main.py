@@ -115,18 +115,18 @@ Write a list of eight obstacles that could block the protagonist's major goal in
 instructions_by_function = {
   "introduce_character":
     "introduce a character we haven't introduced already",
-  "introduce_character,cold":
+  "introduce_character:cold":
     "introduce a cold and solitary character who speaks bluntly and rarely shows emotion",
-  "introduce_character,sunny":
+  "introduce_character:sunny":
     "introduce a character who is optimistic and brave",
-  "introduce_character,clumsy":
+  "introduce_character:clumsy":
     "introduce a character who is innocent and adorable, often acts in a laughably naive way",
-  "introduce_character,smart":
+  "introduce_character:smart":
     "introduce a character who is intellectually agile, skilled in strategy and planning, provides wisdom and support at crucial moments",
-  "introduce_character,mysterious":
+  "introduce_character:mysterious":
     "introduce a character who is full of mysteries, difficult to understand, whose true motives are hard to read",
   #seems a bit off - quirky
-  "introduce_character,quirky":
+  "introduce_character:quirky":
     "introduce a character who is quirky and eccentric, marches to the beat of their own drum, highly imaginative with unusual habits and mannerisms",
   "describe_setting":
     "describe the place where the characters are",
@@ -142,6 +142,8 @@ instructions_by_function = {
     "introduce an obstacle that blocks the major goal of the protagonist, for example: {{obstacle_hint}}",
   "add_breakthrough_towards_major_goal":
     "introduce a breakthrough that helps the major goal of the protagonist",
+  "introduce_rival_character":
+    "introduce a character who has a rival background towards a previous introduced character"
 }
 
 def promptify_outline(outline, user_input_text):

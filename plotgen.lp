@@ -30,8 +30,7 @@ obstacle_type(
   forbidden_love;
   opposition;
   supernatural;
-  guilt;
-  other
+  guilt
 ).
 
 % ... and so on
@@ -82,6 +81,16 @@ emotional_beat(make_reader_sad;make_reader_happy;make_reader_angry).
 :- { scene_performs_function(S,add_obstacle) } = 0.
 
 % never introduce a rival character in the first scene
+:- scene_performs_function(S, introduce_rival_character), S = 1.
+
+% always have a rival (for test)
+:- { scene_performs_function(S, introduce_rival_character) } = 0.
+
+% only add plot twist after the 3rd scene
+:- scene_performs_function(S, add_twist), S <= 3.
+
+% always have some sort of twist (for test)
+:- { scene_performs_function(S,add_twist) } = 0.
 
 
 %%% 3. make sure output is displayed correctly
