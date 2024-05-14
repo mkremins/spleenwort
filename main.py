@@ -143,7 +143,7 @@ instructions_by_function = {
   "add_obstacle_towards_major_goal":
     "introduce an obstacle that blocks the major goal of the protagonist, for example: {{obstacle_hint}}",
   "add_breakthrough_towards_major_goal":
-    "introduce a breakthrough that helps the major goal of the protagonist",
+    "introduce a significant development, discovery, or event that naturally advances the protagonist's primary objective or helps them overcome a major obstacle in their journey. Ensure this breakthrough feels organic to the story and aligns with the established plot, characters, and setting",
   "add_twist":
     "add a plot twist",
   "add_obstacle:betrayal":
