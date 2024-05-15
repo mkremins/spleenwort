@@ -123,7 +123,7 @@ instructions_by_function = {
   "introduce_character:sunny":
     "introduce an optimistic and brave character who would fit organically. Consider how this character's presence can be connected to the current plot, setting, or other characters. Craft a scene or situation that allows for a smooth integration of this character, ensuring that their introduction doesn't feel forced or disconnected from the narrative. Provide context for their sunny and brave nature through their actions, dialogue, or the reactions of other characters, while maintaining the flow and consistency of the story. This character's introduction should contribute to the development of the plot or the growth of other characters in a meaningful way",
   "introduce_character:clumsy":
-    "introduce a character who is innocent and adorable, often acts in a laughably naive way. Show their personality through their actions, dialogue, or the reactions of other characters. This character's introduction should contribute to the development of the plot or the growth of other characters in a meaningful way",
+    "introduce a character who is innocent and adorable, often acts in a laughably naive way. Show their personality through their actions, dialogue, or the reactions of other characters. This character's introduction should contribute to the development of the plot or the growth of other characters in a meaningful way, while maintaining the flow and consistency of the story",
   "introduce_character:smart":
     "introduce a character who is intellectually agile, skilled in strategy and planning, provides wisdom and support at crucial moments. Show their personality through their actions, dialogue, or the reactions of other characters. This character's introduction should contribute to the development of the plot or the growth of other characters in a meaningful way",
   "introduce_character:mysterious":
@@ -149,7 +149,7 @@ instructions_by_function = {
   "add_obstacle:betrayal":
     "introduce an obstacle to a previous introduced character where they face betrayal",
   "add_obstacle:supernatural":
-    "introduce an obstacle to a previous introduced character where they face supernatural power",
+    "introduce a new obstacle for a previously established character in the story. The obstacle should involve the character encountering a supernatural power or force or entity. Describe the nature of this supernatural element, how it manifests, and the immediate impact it has on the character. Show the character's initial reaction, whether it's shock, fear, confusion, or curiosity. Ensure that the obstacle is relevant to the character's established traits, backstory, and narrative arc, and that it creates genuine tension and challenges for them to face, thereby driving the story forward and contributing to their overall development, while maintaining the flow and consistency of the story",
   "add_obstacle:forbidden_love":
     "introduce an obstacle to a previous introduced character where they face forbidden love",
   "add_obstacle:opposition":
