@@ -123,13 +123,13 @@ instructions_by_function = {
   "introduce_character:sunny":
     "introduce an optimistic and brave character who would fit organically. Consider how this character's presence can be connected to the current plot, setting, or other characters. Craft a scene or situation that allows for a smooth integration of this character, ensuring that their introduction doesn't feel forced or disconnected from the narrative. Provide context for their sunny and brave nature through their actions, dialogue, or the reactions of other characters, while maintaining the flow and consistency of the story. This character's introduction should contribute to the development of the plot or the growth of other characters in a meaningful way",
   "introduce_character:clumsy":
-    "introduce a character who is innocent and adorable, often acts in a laughably naive way",
+    "introduce a character who is innocent and adorable, often acts in a laughably naive way. Show their personality through their actions, dialogue, or the reactions of other characters. This character's introduction should contribute to the development of the plot or the growth of other characters in a meaningful way",
   "introduce_character:smart":
-    "introduce a character who is intellectually agile, skilled in strategy and planning, provides wisdom and support at crucial moments",
+    "introduce a character who is intellectually agile, skilled in strategy and planning, provides wisdom and support at crucial moments. Show their personality through their actions, dialogue, or the reactions of other characters. This character's introduction should contribute to the development of the plot or the growth of other characters in a meaningful way",
   "introduce_character:mysterious":
-    "introduce a character who is full of mysteries, difficult to understand, whose true motives are hard to read",
+    "introduce a character who is full of mysteries, difficult to understand, whose true motives are hard to read. Show their personality through their actions, dialogue, or the reactions of other characters. This character's introduction should contribute to the development of the plot or the growth of other characters in a meaningful way",
   "introduce_character:quirky":
-    "introduce a character who is quirky and eccentric, marches to the beat of their own drum, highly imaginative with unusual habits and mannerisms",
+    "introduce a character who is quirky and eccentric, marches to the beat of their own drum, highly imaginative with unusual habits and mannerisms. Show their personality through their actions, dialogue, or the reactions of other characters. This character's introduction should contribute to the development of the plot or the growth of other characters in a meaningful way",
   "describe_setting":
     "describe the place where the characters are",
   "make_reader_sad":
@@ -139,7 +139,7 @@ instructions_by_function = {
   "add_conflict_between_characters":
     "introduce an event that adds conflicts between two previously introduced characters",  
   "add_bonding_between_characters":
-    "introduce an event that deepen the bonding between two previously introduced characters",
+    "introduce a shared experience, challenge, or moment of vulnerability that strengthens the emotional connection and understanding between two previously established characters. This event should reveal new depths to their relationship, highlight their complementary qualities, or demonstrate their ability to support and rely on one another in meaningful ways. Ensure the event flows naturally from the story's preceding events and character development, and that it contributes to the overall narrative arc",
   "add_obstacle_towards_major_goal":
     "introduce an obstacle that blocks the major goal of the protagonist, for example: {{obstacle_hint}}",
   "add_breakthrough":
