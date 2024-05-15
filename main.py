@@ -142,7 +142,7 @@ instructions_by_function = {
     "introduce an event that deepen the bonding between two previously introduced characters",
   "add_obstacle_towards_major_goal":
     "introduce an obstacle that blocks the major goal of the protagonist, for example: {{obstacle_hint}}",
-  "add_breakthrough_towards_major_goal":
+  "add_breakthrough":
     "introduce a significant development, discovery, or event that naturally advances the protagonist's primary objective or helps them overcome a major obstacle in their journey. Ensure this breakthrough feels organic to the story and aligns with the established plot, characters, and setting",
   "add_twist":
     "add a plot twist",
@@ -270,7 +270,7 @@ with open(file_name, 'w') as file:
     print("### OUTLINE")
     #outline = random.choice(outlines) # TODO pick at random?>> is it not random? 
     # read randomly from the pregenerated outline file
-    outline = read_random_outline('outlines0514.txt')
+    outline = read_random_outline('outlines05141700.txt')
     print(outline)
     outline_prompts = promptify_outline(outline, user_input_text)
     print(storify_prompts(outline_prompts))

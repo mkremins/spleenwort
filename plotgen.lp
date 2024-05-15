@@ -12,7 +12,7 @@ function(
   %describe_setting;
   add_obstacle_towards_major_goal;
   add_obstacle;%a different one to test the obstacle type
-  add_breakthrough_towards_major_goal;
+  add_breakthrough;
   add_twist
 ).
 
@@ -70,7 +70,6 @@ emotional_beat(make_reader_sad;make_reader_happy;make_reader_angry).
    emotional_beat(F2),
    S2 = S1 + 1.
 
-% how to restrict not add the same personality twice?
 % never introduce the same personality twice
 :- scene_introduce_personality(S1,P), scene_introduce_personality(S2,P), S1 != S2.
 
@@ -82,6 +81,9 @@ emotional_beat(make_reader_sad;make_reader_happy;make_reader_angry).
 
 % never introduce a rival character in the first scene
 :- scene_performs_function(S, introduce_rival_character), S = 1.
+
+% never introduce a breakthrough in the first scene
+:- scene_performs_function(S, add_breakthrough), S = 1.
 
 % always have a rival (for test)
 :- { scene_performs_function(S, introduce_rival_character) } = 0.
