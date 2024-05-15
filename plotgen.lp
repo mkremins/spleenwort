@@ -13,7 +13,8 @@ function(
   add_obstacle_towards_major_goal;
   add_obstacle;%a different one to test the obstacle type
   add_breakthrough;
-  add_twist
+  add_twist;
+  level_up_obstacle
 ).
 
 character_personality(
@@ -63,12 +64,12 @@ scene(1..num_scenes).
    S2 = S1 + 1.
 
 % never do two emotional beats in a row
-emotional_beat(make_reader_sad;make_reader_happy;make_reader_angry).
-:- scene_performs_function(S1,F1),
-   scene_performs_function(S2,F2),
-   emotional_beat(F1),
-   emotional_beat(F2),
-   S2 = S1 + 1.
+%emotional_beat(make_reader_sad;make_reader_happy;make_reader_angry).
+%:- scene_performs_function(S1,F1),
+%   scene_performs_function(S2,F2),
+%   emotional_beat(F1),
+%   emotional_beat(F2),
+%   S2 = S1 + 1.
 
 % never introduce the same personality twice
 :- scene_introduce_personality(S1,P), scene_introduce_personality(S2,P), S1 != S2.
@@ -79,20 +80,35 @@ emotional_beat(make_reader_sad;make_reader_happy;make_reader_angry).
 % always have some sort of obstacle
 :- { scene_performs_function(S,add_obstacle) } = 0.
 
+% never level up an obstacle until at least one obstacle is introduced
+:- scene_performs_function(S1,level_up_obstacle), scene_performs_function(S2,add_obstacle), S1 < S2.
+
+% always have an obstacle level up (for test)
+:- { scene_performs_function(S,level_up_obstacle) } = 0.
+
+% never level up the obstacle in the last scene
+%:- scene_performs_function(S,level_up_obstacle), S = 7.
+
 % never introduce a rival character in the first scene
 :- scene_performs_function(S, introduce_rival_character), S = 1.
 
 % never introduce a breakthrough in the first scene
 :- scene_performs_function(S, add_breakthrough), S = 1.
 
+% always have a breakthrough (for test)
+:- { scene_performs_function(S,add_breakthrough) } = 0.
+
+% always have a bonding (for test)
+:- { scene_performs_function(S,add_bonding_between_characters) } = 0.
+
 % always have a rival (for test)
-:- { scene_performs_function(S, introduce_rival_character) } = 0.
+%:- { scene_performs_function(S, introduce_rival_character) } = 0.
 
 % only add plot twist after the 3rd scene
 :- scene_performs_function(S, add_twist), S <= 3.
 
 % always have some sort of twist (for test)
-:- { scene_performs_function(S,add_twist) } = 0.
+%:- { scene_performs_function(S,add_twist) } = 0.
 
 
 %%% 3. make sure output is displayed correctly
