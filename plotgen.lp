@@ -75,10 +75,13 @@ scene(1..num_scenes).
 :- scene_introduce_personality(S1,P), scene_introduce_personality(S2,P), S1 != S2.
 
 % always have some sort of character conflict
-:- { scene_performs_function(S,add_conflict_between_characters) } = 0.
+%:- { scene_performs_function(S,add_conflict_between_characters) } = 0.
 
 % don't introduce more than 4 characters
 :- { scene_performs_function(S1,introduce_character); scene_performs_function(S2,introduce_rival_character)} > 4.
+
+% don't introduce more than 2 obstacles
+:- { scene_performs_function(S1,add_obstacle); scene_performs_function(S2,add_obstacle_towards_major_goal)} > 2.
 
 % always have some sort of obstacle
 :- { scene_performs_function(S,add_obstacle) } = 0.
@@ -99,10 +102,10 @@ scene(1..num_scenes).
 :- scene_performs_function(S, add_breakthrough), S = 1.
 
 % always have a breakthrough (for test)
-:- { scene_performs_function(S,add_breakthrough) } = 0.
+%:- { scene_performs_function(S,add_breakthrough) } = 0.
 
 % always have a bonding (for test)
-:- { scene_performs_function(S,add_bonding_between_characters) } = 0.
+%:- { scene_performs_function(S,add_bonding_between_characters) } = 0.
 
 % always have a rival (for test)
 %:- { scene_performs_function(S, introduce_rival_character) } = 0.
@@ -111,7 +114,7 @@ scene(1..num_scenes).
 :- scene_performs_function(S, add_twist), S <= 3.
 
 % always have some sort of twist (for test)
-%:- { scene_performs_function(S,add_twist) } = 0.
+:- { scene_performs_function(S,add_twist) } = 0.
 
 
 %%% 3. make sure output is displayed correctly
