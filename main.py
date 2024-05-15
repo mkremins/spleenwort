@@ -155,7 +155,7 @@ instructions_by_function = {
   "add_obstacle:opposition":
     "introduce an obstacle to a previous introduced character where they face opposition",
   "add_obstacle:guilt":
-    "introduce an obstacle to a previous introduced character where they face guilt",
+    "introduce a situation where a previously established character confronts a moral dilemma or the consequences of a past mistake that evokes a deep sense of guilt and inner turmoil. This obstacle should stem from a choice, action, or inaction in the character's past that they deeply regret, and which now haunts them. The character's guilt should manifest through introspection, self-doubt, and a struggle to reconcile their past actions with their present moral compass. Ensure that this obstacle and the character's emotional struggle are woven cohesively into the narrative, building upon their established traits, relationships, and arc, while also creating opportunities for profound character development and driving the story forward",
 }
 
 def promptify_outline(outline, user_input_text):
