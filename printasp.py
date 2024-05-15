@@ -95,14 +95,14 @@ def main():
     ctl.solve(on_model=print_model)
     ctl.solve(on_model=format_outline)
 
-    ## Solve the ASP program and collect all the outlines
-    # set the configuration to enumerate all models
+    # ## Solve the ASP program and collect all the outlines
+    # # set the configuration to enumerate all models
     ctl.configuration.solve.models = 0
     outlines = []
     ctl.solve(on_model=lambda model: outlines.append(format_outline(model)))
 
     # Save the outlines to a file
-    save_outlines(outlines, "outlines05142000.txt")
+    save_outlines(outlines, "outlines05142240.txt")
 
 
 if __name__ == "__main__":

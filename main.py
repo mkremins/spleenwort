@@ -272,7 +272,7 @@ with open(file_name, 'w') as file:
     print("### OUTLINE")
     #outline = random.choice(outlines) # TODO pick at random?>> is it not random? 
     # read randomly from the pregenerated outline file
-    outline = read_random_outline('outlines05142000.txt')
+    outline = read_random_outline('outlines05142240.txt')
     print(outline)
     outline_prompts = promptify_outline(outline, user_input_text)
     print(storify_prompts(outline_prompts))

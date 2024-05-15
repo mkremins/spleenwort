@@ -77,6 +77,9 @@ scene(1..num_scenes).
 % always have some sort of character conflict
 :- { scene_performs_function(S,add_conflict_between_characters) } = 0.
 
+% don't introduce more than 4 characters
+:- { scene_performs_function(S1,introduce_character); scene_performs_function(S2,introduce_rival_character)} > 4.
+
 % always have some sort of obstacle
 :- { scene_performs_function(S,add_obstacle) } = 0.
 
