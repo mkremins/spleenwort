@@ -153,7 +153,7 @@ instructions_by_function = {
   "add_obstacle:forbidden_love":
     "introduce an obstacle to a previous introduced character where they face forbidden love",
   "add_obstacle:opposition":
-    "introduce an obstacle to a previous introduced character where they face opposition",
+    "introduce a new obstacle for a previously established character in the story. The obstacle should involve the character facing significant opposition or conflict from other characters, society, or nature. Ensure that the obstacle is relevant to the character's established traits, backstory, and narrative arc, and that it creates genuine tension and challenges for them to face, thereby driving the story forward and contributing to their overall development",
   "add_obstacle:guilt":
     "introduce a situation where a previously established character confronts a moral dilemma or the consequences of a past mistake that evokes a deep sense of guilt and inner turmoil. This obstacle should stem from a choice, action, or inaction in the character's past that they deeply regret, and which now haunts them. The character's guilt should manifest through introspection, self-doubt, and a struggle to reconcile their past actions with their present moral compass. Ensure that this obstacle and the character's emotional struggle are woven cohesively into the narrative, building upon their established traits, relationships, and arc, while also creating opportunities for profound character development and driving the story forward",
 }
