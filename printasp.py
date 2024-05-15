@@ -102,7 +102,7 @@ def main():
     ctl.solve(on_model=lambda model: outlines.append(format_outline(model)))
 
     # Save the outlines to a file
-    save_outlines(outlines, "outlines05142315.txt")
+    save_outlines(outlines, "outlines05150045.txt")
 
 
 if __name__ == "__main__":

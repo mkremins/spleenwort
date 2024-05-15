@@ -74,6 +74,9 @@ scene(1..num_scenes).
 % never introduce the same personality twice
 :- scene_introduce_personality(S1,P), scene_introduce_personality(S2,P), S1 != S2.
 
+% never introduce the same obstacle type twice
+:- scene_define_obstacle_type(S1,P), scene_define_obstacle_type(S2,P), S1 != S2.
+
 % always have some sort of character conflict
 %:- { scene_performs_function(S,add_conflict_between_characters) } = 0.
 
@@ -108,7 +111,7 @@ scene(1..num_scenes).
 %:- { scene_performs_function(S,add_bonding_between_characters) } = 0.
 
 % always have a rival (for test)
-%:- { scene_performs_function(S, introduce_rival_character) } = 0.
+:- { scene_performs_function(S, introduce_rival_character) } = 0.
 
 % only add plot twist after the 3rd scene
 :- scene_performs_function(S, add_twist), S <= 3.
