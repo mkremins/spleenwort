@@ -259,7 +259,7 @@ def read_random_outline(file_path):
 
 # Generate a unique file name using the story name and timestamp
 timestamp = datetime.datetime.now().strftime("%Y%m%d%H%M")
-user_input_text = "cat pirates" #theme of the story
+user_input_text = "make money" #theme of the story
 file_name = f"{user_input_text}_{GPT_MODEL}_{timestamp}.txt"
 
 # saving the prints .txt file
