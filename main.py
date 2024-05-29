@@ -98,11 +98,11 @@ You're writing a story about:
 
 {{user_input_text}}
 
-Write the first paragraph of the story. In this paragraph, {{follow_instruction}}. Use no more than five sentences in the paragraph.
+Write the first paragraph of the story. In this paragraph, {{follow_instruction}}. Use two to five sentences in the paragraph based on the need.
 """.strip()
 
 followup_prompt = """
-Write the next paragraph of the story. Remember the story is about: {{user_input_text}}. In this paragraph, {{follow_instruction}}. Use no more than five sentences in the paragraph.
+Write the next paragraph of the story. Remember the story is about: {{user_input_text}}. In this paragraph, {{follow_instruction}}. Use two to five sentences in the paragraph based on the need.
 """.strip()
 
 # add an extra prompts for obstacles
@@ -199,11 +199,11 @@ You're writing a story about:
 
 {{user_input_text}}
 
-Write the first paragraph of the story. Use no more than five sentences in the paragraph.
+Write the first paragraph of the story. Use two to five sentences in the paragraph based on the need.
 """.strip()
 
 naive_followup_prompt = """
-Write the next paragraph of the story. Remember the story is about: {{user_input_text}}. Use no more than five sentences in the paragraph.
+Write the next paragraph of the story. Remember the story is about: {{user_input_text}}. Use two to five sentences in the paragraph based on the need.
 """.strip()
 
 def promptify_naively(num_paras, user_input_text):
