@@ -98,11 +98,11 @@ You're writing a story about:
 
 {{user_input_text}}
 
-Write the first paragraph of the story. In this paragraph, {{follow_instruction}}. Use two or five sentences in the paragraph based on the case.
+Write the first paragraph of the story. In this paragraph, {{follow_instruction}}. Use two or five sentences in the paragraph.
 """.strip()
 
 followup_prompt = """
-Write the next paragraph of the story. Remember the story is about: {{user_input_text}}. In this paragraph, {{follow_instruction}}. Use two or five sentences in the paragraph based on the case.
+Write the next paragraph of the story. Remember the story is about: {{user_input_text}}. In this paragraph, {{follow_instruction}}. Use two or five sentences in the paragraph.
 """.strip()
 
 # add an extra prompts for obstacles
@@ -199,11 +199,11 @@ You're writing a story about:
 
 {{user_input_text}}
 
-Write the first paragraph of the story. Use two or five sentences in the paragraph based on the case.
+Write the first paragraph of the story. Use two or five sentences in the paragraph.
 """.strip()
 
 naive_followup_prompt = """
-Write the next paragraph of the story. Remember the story is about: {{user_input_text}}. Use two or five sentences in the paragraph based on the case.
+Write the next paragraph of the story. Remember the story is about: {{user_input_text}}. Use two or five sentences in the paragraph. If the previous paragraph is short, make this one long. If the previous paragraph is long, make this one short. 
 """.strip()
 
 def promptify_naively(num_paras, user_input_text):
@@ -259,7 +259,7 @@ def read_random_outline(file_path):
 
 # Generate a unique file name using the story name and timestamp
 timestamp = datetime.datetime.now().strftime("%Y%m%d%H%M")
-user_input_text = "cat pirates" #theme of the story
+user_input_text = "make money" #theme of the story
 file_name = f"{user_input_text}_{GPT_MODEL}_{timestamp}.txt"
 
 # saving the prints .txt file
