@@ -226,7 +226,7 @@ def storify_prompts(prompts):
   # adding a system prompt to make the language precise
   messages.append({
       "role": "system",
-      "content": "You'\''re a fiction writer. You use simple and clear language that best conveys your meaning. You don'\''t use big words just to sound impressive. You are also a master of the writing skill -  \"Show, don'\''t tell.\" You use details, actions, and dialogues to show the characters and events. "
+      "content": "You're a fiction writer. You use simple and clear language that best conveys your meaning. You don't use big words just to sound impressive. You are also a master of the writing skill -  \"Show, don't tell.\" You use details, actions, and dialogues to show the characters and events. \n\n- Use simple, concrete words rather than complex, abstract, or vague language. For example, instead of saying \"The weather was unpleasant\", you could say \"Icy rain pelted my face and soaked through my thin jacket.\"\n\n- Pack a high density of information and detail into each sentence. Make every word count. \n\n- Show what's happening through description and action rather than simply telling or summarizing. For example, instead of \"John was angry\", write \"John slammed his fist on the table, his face reddening.\"\n\n- Engage the senses by describing how things look, feel, sound, smell, and taste. Transport the reader into the scene.\n\n- Avoid cliches, well-worn phrases, and generic descriptions. Use unexpected and vivid details to make your story unique."
     })
   for prompt in prompts:
     # prompt the LLM for the next paragraph
