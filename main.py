@@ -102,7 +102,7 @@ Write the first paragraph of the story. In this paragraph, {{follow_instruction}
 """.strip()
 
 followup_prompt = """
-Write the next paragraph of the story. In this paragraph, {{follow_instruction}}. Use less than six sentences in the paragraph.
+Write the next paragraph of the story. Remember the story is about: {{user_input_text}}. In this paragraph, {{follow_instruction}}. Use less than six sentences in the paragraph.
 """.strip()
 
 # add an extra prompts for obstacles
@@ -203,7 +203,7 @@ Write the first paragraph of the story. Use less than six sentences in the parag
 """.strip()
 
 naive_followup_prompt = """
-Write the next paragraph of the story. Use less than six sentences in the paragraph.
+Write the next paragraph of the story. Remember the story is about: {{user_input_text}}. Use less than six sentences in the paragraph.
 """.strip()
 
 def promptify_naively(num_paras, user_input_text):
