@@ -98,11 +98,11 @@ You're writing a story about:
 
 {{user_input_text}}
 
-Write the first paragraph of the story. In this paragraph, {{follow_instruction}}. Use two or five sentences in the paragraph.
+Write the first paragraph of the story. In this paragraph, {{follow_instruction}}.
 """.strip()
 
 followup_prompt = """
-Write the next paragraph of the story. Remember the story is about: {{user_input_text}}. In this paragraph, {{follow_instruction}}. Use two or five sentences in the paragraph.
+Write the next paragraph of the story. Remember the story is about: {{user_input_text}}. In this paragraph, {{follow_instruction}}.
 """.strip()
 
 # add an extra prompts for obstacles
@@ -160,6 +160,10 @@ instructions_by_function = {
     "introduce an event that levels up or intensify the previously introduced obstacle in an interesting way that fits with the story so far",
 }
 
+# try to control the length of each paragraph
+def get_random_sentence_count():
+    return random.randint(1, 7)
+
 def promptify_outline(outline, user_input_text):
   prompts = []
   obstacle_hint = "" #get llm to generate examples first
@@ -184,6 +188,10 @@ def promptify_outline(outline, user_input_text):
       # Include the obstacle hint in the instruction
       instruction = instruction.replace("{{obstacle_hint}}", obstacle_hint)
 
+    # Generate a random sentence count for each paragraph
+    sentence_count = get_random_sentence_count()
+    instruction += f" Use {sentence_count} sentences in the paragraph."
+
     prompt_template = init_prompt if is_first_paragraph else followup_prompt
     prompt = prompt_template.replace("{{follow_instruction}}", instruction)
     if is_first_paragraph:
@@ -199,11 +207,11 @@ You're writing a story about:
 
 {{user_input_text}}
 
-Write the first paragraph of the story. Use two or five sentences in the paragraph.
+Write the first paragraph of the story.
 """.strip()
 
 naive_followup_prompt = """
-Write the next paragraph of the story. Remember the story is about: {{user_input_text}}. Use two or five sentences in the paragraph. If the previous paragraph is short, make this one long. If the previous paragraph is long, make this one short. 
+Write the next paragraph of the story. Remember the story is about: {{user_input_text}}.
 """.strip()
 
 def promptify_naively(num_paras, user_input_text):
@@ -211,6 +219,11 @@ def promptify_naively(num_paras, user_input_text):
   for i in range(num_paras):
     is_first_paragraph = i == 0
     prompt = naive_init_prompt if is_first_paragraph else naive_followup_prompt
+
+    # Generate a random sentence count for each paragraph
+    sentence_count = get_random_sentence_count()
+    prompt += f" Use {sentence_count} sentences in the paragraph."
+
     if is_first_paragraph:
       prompt = prompt.replace("{{user_input_text}}", user_input_text)
     prompts.append(prompt)
