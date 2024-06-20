@@ -1,1 +1,6 @@
+# don't check in your API keys
 openai_api_key.txt
+
+# don't check in generated materials
+outlines.csv
+stories/
